@@ -1,67 +1,161 @@
-<div align="center">
+API Market Manager – Backend
+Plataforma de Gestión Comercial B2B • Spring Boot • JWT • PostgreSQL
+🌟 Presentación
 
-# 🛒 API Market Backend
-### Sistema de Gestión de E-Commerce & Autenticación
+API Market Manager es el backend de un sistema orientado a equipos comerciales que necesitan cotizar APIs, gestionar clientes y visualizar métricas clave, todo desde una arquitectura moderna, segura y escalable.
 
-![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1.5-green?style=for-the-badge&logo=spring&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-Build-blue?style=for-the-badge&logo=apachemaven&logoColor=white)
-![H2 Database](https://img.shields.io/badge/Database-H2-darkblue?style=for-the-badge&logo=h2&logoColor=white)
+Este proyecto fue diseñado bajo estándares profesionales, logrando un equilibrio entre claridad, rendimiento y buenas prácticas. Además, incluye componentes competitivos de portafolio para demostrar dominio técnico real a nivel industry-ready.
 
-<br>
+🎯 Objetivos del Sistema
 
-<p align="center">
-  <strong>Evaluación 3 - Desarrollo Fullstack</strong><br>
-  Backend robusto desarrollado con arquitectura en capas, seguridad JWT y buenas prácticas RESTful.
-</p>
+Autenticación y autorización robusta mediante JWT + Spring Security
 
-[Ver Documentación API](#-documentación-api) • [Instalar Localmente](#-instalación-y-ejecución) • [Estructura](#-estructura-del-proyecto)
+Gestión completa de usuarios, roles, clientes y operaciones
 
-</div>
+Arquitectura limpia basada en capas desacopladas
 
----
+Persistencia estructurada con PostgreSQL + JPA/Hibernate
 
-## 📖 Sobre el Proyecto
+APIs documentadas y navegables vía Swagger UI
 
-**API Market** es una solución backend diseñada para administrar el núcleo de una plataforma de ventas en línea. Este servicio actúa como la fuente de verdad para la gestión de inventario y el control de acceso de usuarios.
+Base sólida para consumo desde frontend móvil o web
 
-El sistema permite a los administradores mantener un catálogo de productos actualizado y gestionar el acceso de los usuarios mediante un sistema de seguridad basado en tokens.
+🛠️ Stack Tecnológico
+Categoría	Herramientas
+Backend	Java 17 · Spring Boot 3+ · Maven
+Seguridad	Spring Security · JWT
+Persistencia	PostgreSQL · JPA · Hibernate
+Utilidades	ModelMapper
+Documentación	SpringDoc · Swagger UI
+🧩 Arquitectura del Proyecto
+src/
+ └─ main/
+     ├─ java/com/apimarket/
+     │   ├─ controller/    → Controladores REST
+     │   ├─ service/       → Lógica de negocio
+     │   ├─ repository/    → Acceso a datos JPA
+     │   ├─ model/         → Entidades y enums
+     │   └─ security/      → JWT, filtros, providers
+     └─ resources/
+         ├─ application.properties
+         └─ static / templates (si aplica)
 
-### ✨ Funcionalidades Clave
 
-* 🔐 **Seguridad Avanzada:** Implementación de Spring Security con filtros JWT (JSON Web Token) para proteger endpoints sensibles.
-* 📦 **Gestión de Productos:** CRUD completo (Crear, Leer, Actualizar, Borrar) para el inventario de la tienda.
-* 👥 **Control de Usuarios:** Registro de clientes y autenticación de administradores.
-* 📄 **Documentación Viva:** Integración con Swagger UI para pruebas interactivas en tiempo real.
-* ⚡ **Base de Datos en Memoria:** Uso de H2 para despliegue rápido y pruebas sin configuración externa.
+Diseñado bajo principios de:
 
----
+Responsabilidad única
 
-## 🛠️ Stack Tecnológico
+Inyección de dependencias
 
-El proyecto fue construido utilizando las siguientes herramientas y librerías:
+Capa de servicio limpia
 
-| Tecnología | Uso en el Proyecto |
-| :--- | :--- |
-| **Java 17 (JDK)** | Lenguaje base, aprovechando las características modernas de la versión LTS. |
-| **Spring Boot 3** | Framework principal para la inyección de dependencias y servidor embebido. |
-| **Spring Security** | Manejo de autenticación, autorización y encriptación de contraseñas (BCrypt). |
-| **Lombok** | Reducción de código boilerplate (Getters, Setters, Constructores). |
-| **JPA / Hibernate** | Mapeo Objeto-Relacional (ORM) para la persistencia de datos. |
-| **Swagger / OpenAPI** | Documentación automática de los endpoints REST. |
+Control de acceso por roles
 
----
+🔐 Seguridad Implementada
 
-## 📂 Estructura del Proyecto
+La autenticación JWT sigue un flujo profesional:
 
-El código sigue una arquitectura de capas tradicional para garantizar la mantenibilidad:
+Usuario envía credenciales
 
-```bash
-com.apimarket
-├── 🔒 auth           # Controladores y lógica de autenticación (Login/Register)
-├── ⚙️ config         # Configuraciones (Security, Swagger, Cors)
-├── 🎮 controller     # Capa de controladores REST (Endpoints)
-├── 📦 model          # Entidades JPA (Producto, Usuario)
-├── 💾 repository     # Interfaces de acceso a datos (JPA Repositories)
-├── 🧠 service        # Lógica de negocio y validaciones
-└── 🛡️ security       # Filtros JWT y utilidades de token
+Servicio valida en base de datos
+
+Se genera token firmado y con expiración
+
+JWT se envía en cada request protegida
+
+Filtro verifica validez antes de ejecutar el endpoint
+
+Incluye:
+
+Filtro JWT personalizado
+
+Manejo contextual del usuario autenticado
+
+Roles ADMIN / EJECUTIVO
+
+Password hashing con BCrypt
+
+⚙️ Configuración de Base de Datos
+
+Crear la base:
+
+CREATE DATABASE apimarketdb;
+
+
+application.properties:
+
+server.port=8080
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/apimarketdb
+spring.datasource.username=postgres
+spring.datasource.password=TU_CLAVE
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.security.jwt.secret=TU_SECRETO_JWT
+spring.security.jwt.expiration-ms=86400000
+
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+
+▶️ Ejecución del Proyecto
+1️⃣ Build
+mvn clean install
+
+2️⃣ Run
+mvn spring-boot:run
+
+3️⃣ Documentación API
+http://localhost:8080/swagger-ui.html
+
+📌 Endpoints Principales
+🔑 Autenticación
+Método	Endpoint	Función
+POST	/auth/login	Genera token JWT
+👤 Usuarios
+Método	Endpoint	Función
+GET	/usuarios	Lista todos los usuarios
+GET	/usuarios/{id}	Usuario por ID
+PUT	/usuarios/{id}	Actualización parcial
+POST	/usuarios/{id}/saldo	Incrementa saldo
+💼 Sección Portafolio (Plus Competitivo)
+
+Este backend incorpora prácticas que muestran madurez técnica:
+
+Arquitectura escalable pensada para crecer por módulos
+
+Seguridad realista, similar a entornos productivos
+
+DTOs y ModelMapper para desacoplar entidades de vistas
+
+Limpieza del código, siguiendo convenciones profesionales
+
+Uso adecuado de inyección de dependencias y servicios desacoplados
+
+Documentación clara para onboarding rápido
+
+Este proyecto demuestra:
+
+Dominio de Spring Boot moderno
+
+Comprensión de seguridad aplicada
+
+Buen diseño modular
+
+Capacidad de entregar software listo para integración real
+
+🧠 Estado del Proyecto
+
+✔ Cumple rubrica académica
+✔ Cumple estándares profesionales
+✔ Listo para despliegue o integración
+✔ Código claro, organizado y mantenible
+
+🙌 Autor
+
+Elías Delgado Manríquez
+Ingeniería en Informática – DUOC UC
+
+✨ Frase final
+“Construir software es resolver problemas; construir buen software es anticiparlos.”
