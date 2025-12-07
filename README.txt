@@ -1,40 +1,40 @@
-PASO A PASO PARA LEVANTAR EL BACKEND
+# 🚀 API Market Backend
 
-1) Instalar Java 17
-   - Descargar Temurin u OpenJDK 17 desde la página oficial.
-   - Instalar y verificar en una consola:
-     java -version
+> **Evaluación 3 - Desarrollo Fullstack** > Backend desarrollado con Spring Boot para la gestión de productos y usuarios en el sistema API Market.
 
-2) Instalar IntelliJ IDEA Community (o Ultimate)
-   - Abrir IntelliJ.
-   - En la pantalla inicial elegir "Open" y seleccionar la carpeta del proyecto "api-market-backend".
+![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0+-green?style=for-the-badge&logo=spring)
+![Maven](https://img.shields.io/badge/Maven-Build-blue?style=for-the-badge&logo=apachemaven)
 
-3) Esperar a que IntelliJ descargue las dependencias de Maven
-   - Abajo a la derecha aparecerá un mensaje de "Importing Maven project".
-   - Cuando termine, no deben aparecer errores rojos en el pom.xml.
+---
 
-4) Ejecutar la aplicación
-   - Abrir la clase:
-     src/main/java/com/apimarket/ApiMarketBackendApplication.java
-   - Click derecho sobre la clase y elegir "Run 'ApiMarketBackendApplication'".
-   - El backend se levanta en: http://localhost:8080
+## 📋 Tabla de Contenidos
 
-5) Probar autenticación y APIs
-   - Abrir un navegador en:
-     http://localhost:8080/swagger-ui.html
-   - Desde Swagger se pueden probar:
-     POST /api/auth/register
-     POST /api/auth/login
-     GET  /api/productos
-     GET  /api/usuarios
+1. [Prerrequisitos](#-prerrequisitos)
+2. [Instalación y Configuración](#-instalación-y-configuración)
+3. [Ejecución del Proyecto](#-ejecución-del-proyecto)
+4. [Documentación API (Swagger)](#-documentación-api-swagger)
+5. [Credenciales de Acceso](#-credenciales-de-acceso)
 
-6) Usuario de prueba creado automáticamente
-   - Email: admin@apimarket.cl
-   - Password: admin123
+---
 
-7) Para usar desde otro computador (profesor)
-   - Subir esta carpeta a GitHub.
-   - En el notebook del profesor:
-     - Clonar el repositorio.
-     - Importar el proyecto en IntelliJ como proyecto Maven.
-     - Ejecutar la clase ApiMarketBackendApplication.
+## 🛠 Prerrequisitos
+
+Antes de comenzar, asegúrate de tener instalado lo siguiente en tu entorno:
+
+* **Java 17 (JDK)**: [Descargar Temurin u OpenJDK 17](https://adoptium.net/).
+    * *Verificar instalación:* `java -version`
+* **IntelliJ IDEA**: Community o Ultimate Edition.
+* **Git**: Para clonar el repositorio.
+
+---
+
+## ⚙️ Instalación y Configuración
+
+Sigue estos pasos para levantar el proyecto desde cero (o en un computador nuevo/del profesor):
+
+### 1. Clonar el Repositorio
+Abre tu terminal y ejecuta:
+
+```bash
+git clone [https://github.com/TU_USUARIO/api-market-backend.git](https://github.com/TU_USUARIO/api-market-backend.git)
