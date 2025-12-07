@@ -4,158 +4,118 @@ Plataforma de Gestión Comercial B2B • Spring Boot • JWT • PostgreSQL
 
 API Market Manager es el backend de un sistema orientado a equipos comerciales que necesitan cotizar APIs, gestionar clientes y visualizar métricas clave, todo desde una arquitectura moderna, segura y escalable.
 
-Este proyecto fue diseñado bajo estándares profesionales, logrando un equilibrio entre claridad, rendimiento y buenas prácticas. Además, incluye componentes competitivos de portafolio para demostrar dominio técnico real a nivel industry-ready.
+Este proyecto fue desarrollado siguiendo buenas prácticas profesionales de la industria, priorizando claridad, mantenibilidad y rendimiento. El backend está completamente modularizado, documentado y preparado para integrarse tanto con un frontend web como móvil.
 
 🎯 Objetivos del Sistema
 
-Autenticación y autorización robusta mediante JWT + Spring Security
+Autenticación y autorización robusta con JWT + Spring Security
 
 Gestión completa de usuarios, roles, clientes y operaciones
 
 Arquitectura limpia basada en capas desacopladas
 
-Persistencia estructurada con PostgreSQL + JPA/Hibernate
+Persistencia confiable con PostgreSQL + JPA/Hibernate
 
-APIs documentadas y navegables vía Swagger UI
+APIs documentadas mediante Swagger UI
 
-Base sólida para consumo desde frontend móvil o web
+Base sólida para consumo desde aplicaciones móviles o web
 
-🛠️ Stack Tecnológico
-Categoría	Herramientas
-Backend	Java 17 · Spring Boot 3+ · Maven
-Seguridad	Spring Security · JWT
-Persistencia	PostgreSQL · JPA · Hibernate
+🧰 Stack Tecnológico
+Categoría	Tecnologías
+Backend	Java 17 • Spring Boot 3 • Maven
+Seguridad	Spring Security • JWT
+Persistencia	PostgreSQL • JPA • Hibernate
+Documentación	Swagger / OpenAPI
 Utilidades	ModelMapper
-Documentación	SpringDoc · Swagger UI
-🧩 Arquitectura del Proyecto
-src/
- └─ main/
-     ├─ java/com/apimarket/
-     │   ├─ controller/    → Controladores REST
-     │   ├─ service/       → Lógica de negocio
-     │   ├─ repository/    → Acceso a datos JPA
-     │   ├─ model/         → Entidades y enums
-     │   └─ security/      → JWT, filtros, providers
-     └─ resources/
-         ├─ application.properties
-         └─ static / templates (si aplica)
+📐 Arquitectura del Proyecto
+
+La solución implementa un diseño basado en capas desacopladas:
+
+controller  →  dto  →  service  →  repository  →  entity
 
 
-Diseñado bajo principios de:
+Beneficios:
 
-Responsabilidad única
+Separación clara de responsabilidades
 
-Inyección de dependencias
+Código limpio y fácil de extender
 
-Capa de servicio limpia
+Ideal para escalabilidad y mantenimiento futuro
 
-Control de acceso por roles
+🔐 Autenticación y Seguridad
 
-🔐 Seguridad Implementada
+Inicio de sesión basado en JWT
 
-La autenticación JWT sigue un flujo profesional:
+Expiración configurable
 
-Usuario envía credenciales
+Roles y permisos gestionados desde base de datos
 
-Servicio valida en base de datos
+Filtros personalizados para interceptar solicitudes protegidas
 
-Se genera token firmado y con expiración
+🗄️ Base de Datos
 
-JWT se envía en cada request protegida
+Motor: PostgreSQL
 
-Filtro verifica validez antes de ejecutar el endpoint
+Mapeo objeto-relacional con Hibernate
+
+Migraciones automáticas con spring.jpa.hibernate.ddl-auto=update
+
+📘 Documentación de la API
+
+Swagger UI disponible una vez levantado el proyecto:
+
+http://localhost:8080/swagger-ui.html
+
 
 Incluye:
 
-Filtro JWT personalizado
+Endpoints categorizados
 
-Manejo contextual del usuario autenticado
+Ejemplos de request/response
 
-Roles ADMIN / EJECUTIVO
-
-Password hashing con BCrypt
-
-⚙️ Configuración de Base de Datos
-
-Crear la base:
-
-CREATE DATABASE apimarketdb;
-
-
-application.properties:
-
-server.port=8080
-
-spring.datasource.url=jdbc:postgresql://localhost:5432/apimarketdb
-spring.datasource.username=postgres
-spring.datasource.password=TU_CLAVE
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
-spring.security.jwt.secret=TU_SECRETO_JWT
-spring.security.jwt.expiration-ms=86400000
-
-springdoc.api-docs.path=/v3/api-docs
-springdoc.swagger-ui.path=/swagger-ui.html
+Modelo interactivo ideal para pruebas
 
 ▶️ Ejecución del Proyecto
-1️⃣ Build
-mvn clean install
+1️⃣ Requisitos
 
-2️⃣ Run
+JDK 17+
+
+Maven 3+
+
+PostgreSQL instalado
+
+Crear base de datos:
+
+apimarketdb
+
+2️⃣ Configurar credenciales en application.properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/apimarketdb
+spring.datasource.username=postgres
+spring.datasource.password=123456
+
+3️⃣ Ejecutar
+mvn clean install
 mvn spring-boot:run
 
-3️⃣ Documentación API
-http://localhost:8080/swagger-ui.html
+🧪 Endpoints Principales
+🔹 Autenticación
+POST /api/auth/register
+POST /api/auth/login
 
-📌 Endpoints Principales
-🔑 Autenticación
-Método	Endpoint	Función
-POST	/auth/login	Genera token JWT
-👤 Usuarios
-Método	Endpoint	Función
-GET	/usuarios	Lista todos los usuarios
-GET	/usuarios/{id}	Usuario por ID
-PUT	/usuarios/{id}	Actualización parcial
-POST	/usuarios/{id}/saldo	Incrementa saldo
-💼 Sección Portafolio (Plus Competitivo)
+🔹 Gestión de Usuarios
+GET /api/usuarios
+GET /api/usuarios/{id}
+PUT /api/usuarios/{id}
 
-Este backend incorpora prácticas que muestran madurez técnica:
+🔗 Repositorio Oficial
 
-Arquitectura escalable pensada para crecer por módulos
+🔗 https://github.com/ChicoElias/api-market-backend
 
-Seguridad realista, similar a entornos productivos
-
-DTOs y ModelMapper para desacoplar entidades de vistas
-
-Limpieza del código, siguiendo convenciones profesionales
-
-Uso adecuado de inyección de dependencias y servicios desacoplados
-
-Documentación clara para onboarding rápido
-
-Este proyecto demuestra:
-
-Dominio de Spring Boot moderno
-
-Comprensión de seguridad aplicada
-
-Buen diseño modular
-
-Capacidad de entregar software listo para integración real
-
-🧠 Estado del Proyecto
-
-✔ Cumple rubrica académica
-✔ Cumple estándares profesionales
-✔ Listo para despliegue o integración
-✔ Código claro, organizado y mantenible
-
-🙌 Autor
+🧑‍💻 Autor
 
 Elías Delgado Manríquez
-Ingeniería en Informática – DUOC UC
+Desarrollador Fullstack | API & Backend Architecture
 
-✨ Frase final
-“Construir software es resolver problemas; construir buen software es anticiparlos.”
+⭐ Frase final
+
+"Construido para escalar, diseñado para aprender, listo para el mundo real."
