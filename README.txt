@@ -1,4 +1,4 @@
-PASO A PASO PARA LEVANTAR EL BACKEND (NOTEBOOK NUEVO)
+PASO A PASO PARA LEVANTAR EL BACKEND
 
 1) Instalar Java 17
    - Descargar Temurin u OpenJDK 17 desde la página oficial.
