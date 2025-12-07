@@ -1,40 +1,44 @@
-# 🚀 API Market Backend
+<div align="center">
 
-> **Evaluación 3 - Desarrollo Fullstack** > Backend desarrollado con Spring Boot para la gestión de productos y usuarios en el sistema API Market.
+# ⚡ API Market Backend
+### Evaluación 3 - Fullstack Developer
 
-![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0+-green?style=for-the-badge&logo=spring)
-![Maven](https://img.shields.io/badge/Maven-Build-blue?style=for-the-badge&logo=apachemaven)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+![Maven](https://img.shields.io/badge/maven-3.0+-blue?style=for-the-badge&logo=apachemaven)
+
+<br>
+
+<p align="center">
+  <strong>Sistema de gestión de APIs y Usuarios (Backend)</strong><br>
+  Desarrollado para la asignatura de Desarrollo Fullstack.
+</p>
+
+</div>
 
 ---
 
 ## 📋 Tabla de Contenidos
 
-1. [Prerrequisitos](#-prerrequisitos)
-2. [Instalación y Configuración](#-instalación-y-configuración)
-3. [Ejecución del Proyecto](#-ejecución-del-proyecto)
-4. [Documentación API (Swagger)](#-documentación-api-swagger)
-5. [Credenciales de Acceso](#-credenciales-de-acceso)
+1. [🛠️ Requisitos Previos](#-requisitos-previos)
+2. [🚀 Instalación Paso a Paso](#-instalación-paso-a-paso)
+3. [💻 Ejecución del Proyecto](#-ejecución-del-proyecto)
+4. [🧪 Pruebas y Swagger](#-pruebas-y-swagger)
+5. [🔑 Credenciales de Acceso](#-credenciales-de-acceso)
 
 ---
 
-## 🛠 Prerrequisitos
+## 🛠️ Requisitos Previos
 
-Antes de comenzar, asegúrate de tener instalado lo siguiente en tu entorno:
+Antes de comenzar, asegúrate de tener el siguiente entorno configurado:
 
-* **Java 17 (JDK)**: [Descargar Temurin u OpenJDK 17](https://adoptium.net/).
-    * *Verificar instalación:* `java -version`
-* **IntelliJ IDEA**: Community o Ultimate Edition.
-* **Git**: Para clonar el repositorio.
+> **Nota:** Este proyecto utiliza **Java 17**. Es estricto el uso de esta versión para evitar conflictos de compilación.
 
----
+* **Java JDK 17:** [Descargar Temurin 17](https://adoptium.net/)
+* **IDE:** IntelliJ IDEA (Community/Ultimate)
+* **Git:** Para control de versiones.
 
-## ⚙️ Instalación y Configuración
-
-Sigue estos pasos para levantar el proyecto desde cero (o en un computador nuevo/del profesor):
-
-### 1. Clonar el Repositorio
-Abre tu terminal y ejecuta:
-
+Verifica tu versión de Java en la terminal:
 ```bash
-git clone [https://github.com/TU_USUARIO/api-market-backend.git](https://github.com/TU_USUARIO/api-market-backend.git)
+java -version
